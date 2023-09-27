@@ -1,0 +1,23 @@
+import 'package:flutter/material.dart';
+
+class AppTheme {
+  final bool isDark;
+
+  AppTheme({this.isDark = false});
+
+  ThemeData getTheme() {
+    const seedColor = Color(0xFF00b0c8);
+
+    return ThemeData(
+      brightness: isDark ? Brightness.dark : Brightness.light,
+      useMaterial3: true,
+      colorSchemeSeed: seedColor,
+    );
+  }
+
+  AppTheme copyWith({bool? isDark}) {
+    return AppTheme(
+      isDark: isDark ?? this.isDark,
+    );
+  }
+}
