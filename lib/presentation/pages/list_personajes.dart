@@ -1,3 +1,4 @@
+import 'package:choppi_rick/config/theme/theme.dart';
 import 'package:choppi_rick/domain/entities/personaje.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,10 +61,13 @@ class CardPersonaje extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = AppTheme();
     return Card(
       child: ListTile(
         title: Text(personaje.name),
-        subtitle: Text(personaje.status),
+        subtitle: Text(personaje.status,
+            style: TextStyle(
+                color: theme.getStatusColor(personaje.status.split('.').last))),
         leading: Image.network(personaje.image),
         onTap: () {
           context.push('/personaje_detail/${personaje.id}');

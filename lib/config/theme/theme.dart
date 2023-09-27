@@ -15,6 +15,17 @@ class AppTheme {
     );
   }
 
+  Color getStatusColor(String status) {
+    switch (status) {
+      case 'ALIVE':
+        return Colors.green;
+      case 'DEAD':
+        return Colors.red;
+      default:
+        return Colors.grey;
+    }
+  }
+
   AppTheme copyWith({bool? isDark}) {
     return AppTheme(
       isDark: isDark ?? this.isDark,
